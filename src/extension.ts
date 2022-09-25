@@ -2,7 +2,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
-import PCRE from '@stephen-riley/pcre2-wasm';
+//import PCRE from '@stephen-riley/pcre2-wasm';
 import * as regexecute from './regexecute';
 
 const cmdId = 'regexworkbench.start';
@@ -59,7 +59,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	statusBarItem.command = cmdId;
 	context.subscriptions.push(statusBarItem);
 
-	PCRE.init();
+	//PCRE.init();
 
 	statusBarItem.text = `/$(star)/`;
 	statusBarItem.show();
@@ -199,8 +199,8 @@ class RegexWorkbenchPanel {
 					break;
 				}
 				case 'split': {
-					const res = regexecute.split(msg.subject, msg.regex, msg.flags);
-					this._panel.webview.postMessage({ command: 'results', op: 'split', results: res });
+					//const res = regexecute.split(msg.subject, msg.regex, msg.flags);
+					//this._panel.webview.postMessage({ command: 'results', op: 'split', results: res });
 					break;
 				}
 				case 'replace': {
@@ -215,7 +215,7 @@ class RegexWorkbenchPanel {
 				}
 			}
 		}
-		catch (e) {
+		catch (e: any) {
 			let message = "Invalid regular expression";
 
 			message = 'message' in e ? message + `: ${e.message}` : message;

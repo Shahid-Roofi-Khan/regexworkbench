@@ -107,7 +107,7 @@ function buildResultsTable(results, parent) {
 
     let matchIndex = 0;
     results.forEach(e => {
-        table += tr(th([`Match ${matchIndex}`, `${e[0].start}-${e[0].end}`, e[0].match]));
+        table += tr(th([`Match ${matchIndex}`, `${e[0].index}-${e[0].end}`, e[0].match]));
 
         if (e.length > 0) {
             let groupIndex = 1;
